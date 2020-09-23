@@ -16,6 +16,7 @@ import * as Yup from 'yup';
 
 import { Form } from '@unform/mobile';
 import { FormHandles } from '@unform/core';
+import api from '../../services/api';
 
 import logoImg from '../../assets/logo.png';
 
@@ -58,9 +59,14 @@ const SignUp: React.FC = () => {
 
       await schema.validate(data, { abortEarly: false });
 
-      // await api.post('users', data);
+      await api.post('users', data);
 
-      // history.push('/');
+      Alert.alert(
+        'Cadastro realizado com sucesso!',
+        'Você já pode fazer login na aplicação',
+      );
+
+      navigation.goBack();
     } catch (error) {
       if (error instanceof Yup.ValidationError) {
         const errors = getValidationErrors(error);
@@ -94,10 +100,7 @@ const SignUp: React.FC = () => {
               <Title>Crie sua conta</Title>
             </View>
 
-            <Form
-              ref={formRef}
-              onSubmit={handleSignUp}
-            >
+            <Form ref={formRef} onSubmit={handleSignUp}>
               <Input
                 autoCapitalize="words"
                 name="name"
