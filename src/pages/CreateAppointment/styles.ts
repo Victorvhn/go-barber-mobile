@@ -21,8 +21,7 @@ interface HourTextProps {
   selected: boolean;
 }
 
-export const Container = styled.View`
-`;
+export const Container = styled.View``;
 
 export const Header = styled.View`
   padding: 24px;
@@ -34,8 +33,7 @@ export const Header = styled.View`
   align-items: center;
 `;
 
-export const BackButton = styled.TouchableOpacity`
-`;
+export const BackButton = styled.TouchableOpacity``;
 
 export const HeaderTitle = styled.Text`
   color: #f4ede8;
@@ -89,8 +87,7 @@ export const ProviderName = styled.Text<ProviderNameProps>`
   color: ${(props) => (props.selected ? '#232129' : '#f1ede8')};
 `;
 
-export const Calendar = styled.View`
-`;
+export const Calendar = styled.View``;
 
 export const Title = styled.Text`
   font-family: 'RobotoSlab-Medium';
@@ -119,7 +116,7 @@ export const Schedule = styled.View`
 `;
 
 export const Section = styled.View`
-margin-bottom: 24px;
+  margin-bottom: 24px;
 `;
 
 export const SectionTitle = styled.Text`
@@ -141,11 +138,26 @@ export const Hour = styled(RectButton)<HourProps>`
   border-radius: 10px;
   margin-right: 8px;
 
-  opacity: ${(props) => (props.available ? 1 : 0.3)}
+  opacity: ${(props) => (props.available ? 1 : 0.3)};
 `;
 
 export const HourText = styled.Text<HourTextProps>`
   font-family: 'RobotoSlab-Regular';
   color: ${(props) => (props.selected ? '#232129' : '#f4ede8')};
   font-size: 16px;
+`;
+
+export const CreateAppointmentButton = styled(RectButton)`
+  height: 50px;
+  background: #ff9000;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  margin: 0 24px 24px;
+`;
+
+export const CreateAppointmentButtonText = styled.Text`
+  font-family: 'RobotoSlab-Medium';
+  color: #232129;
+  font-size: 18px;
 `;
